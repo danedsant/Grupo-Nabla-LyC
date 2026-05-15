@@ -1,4 +1,6 @@
-###  Este repositorio universitario contiene las actividades asignadas al GRUPO NABLA durante el curso del semestre 2026-I en la asignatura: Lenguajes y Compiladores
+# Grupo Nabla ▽ ~ Calma en la mente, disciplina al frente
+
+### Este repositorio universitario contiene las actividades asignadas al GRUPO NABLA durante el curso del semestre 2026-I en la asignatura: Lenguajes y Compiladores
 
 ## 📝 Temario
 
