@@ -42,7 +42,7 @@ Para ejecutar los siguientes lenguajes se pueden instalar sus respectivas depend
 | **Rust** | https://static.rust-lang.org/rustup/dist/x86_64-pc-windows-msvc/rustup-init.exe | Para compilar y ejecutar el codigo de rust en windows es necesario personalizar la instalacion usando el **GNU ABI toolchain**, por lo que durante la instalacion via `rustup-init.exe` se debe cambiar el `default host triple` de `x86_64-pc-windows-msvc` a `x86_64-pc-windows-gnu` para una instalacion minima
 
 > [!NOTE]
-> La instalacion de dependencias descritas añaden automaticamente al PATH cada lenguaje respectivamente
+> La instalacion de las dependencias descritas añade automaticamente al PATH cada lenguaje respectivamente
 
 
 ## Ejecucion de los codigos
@@ -68,7 +68,7 @@ node collatz.js
  - Ejecutar el siguiente comando:
 
  ```
-cargo run
+cargo run --release
 ```
 
 ### Zig
@@ -76,7 +76,7 @@ cargo run
  - Ejecutar el siguiente comando:
 
  ```
-Zig run collatz.zig
+zig run collatz.zig
 ```
 
 ## Especificaciones del entorno de prueba
