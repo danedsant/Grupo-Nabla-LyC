@@ -10,7 +10,7 @@ La conjetura establece que para cualquier numero entero positivo **N**, eventual
 
 >2) Si el número es **impar**, se multiplica por 3 y se le suma 1.
 
-El programa no debe evalua un unico valor, sino que debe calcular de forma iterativa y continua los pasos requeridos para todos los numeros estrictamente menores al **N** ingresado por el usuario, donde **N > 50**
+El programa no debe evaluar un unico valor, sino que debe calcular de forma iterativa y continua los pasos requeridos para todos los numeros estrictamente menores al **N** ingresado por el usuario, donde **N > 50**
 
 ## Estructura
 ```
