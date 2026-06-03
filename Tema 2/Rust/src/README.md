@@ -3,30 +3,29 @@
 
 A continuación, se detalla la documentación formal de las estructuras de control (subprogramas, bucles y condicionales) utilizadas exactamente en el código fuente de Rust, empleando la notación **EBNF (Extended Backus-Naur Form)** para describir la jerarquía sintáctica construida.
 
-```text
-(* ==========================================
-   DEFINICIONES DE SUBPROGRAMAS
-   ========================================== *)
+
+ ###  DEFINICIONES DE SUBPROGRAMAS
+```
 subprograma_collatz    ::= "fn collatz(mut num: u64) -> u64" , bloque_collatz ;
 subprograma_pedir      ::= "fn pedir_numero() -> u64" , bloque_pedir ;
 subprograma_main       ::= "fn main()" , bloque_main ;
+```
 
-(* ==========================================
-   ESTRUCTURAS CÍCLICAS (BUCLES)
-   ========================================== *)
+ ###  ESTRUCTURAS CÍCLICAS (BUCLES)
+```   
 bucle_while_collatz    ::= "while num > 1" , bloque_while ;
 bucle_loop_pedir       ::= "loop" , bloque_loop ;
 bucle_for_main         ::= "for i in 1..n" , bloque_for ;
+```
 
-(* ==========================================
-   ESTRUCTURAS CONDICIONALES
-   ========================================== *)
+###   ESTRUCTURAS CONDICIONALES
+```
 condicional_if_collatz ::= "if num % 2 == 0" , bloque_if_par , [ "else" , bloque_else_impar ] ;
 estructura_match_pedir ::= "match input.trim().parse::<u64>()" , bloque_match ;
+```
 
-(* ==========================================
-   BLOQUES DE CÓDIGO DEL PROGRAMA
-   ========================================== *)
+###   BLOQUES DE CÓDIGO DEL PROGRAMA
+```
 bloque_collatz         ::= "{" , "let mut pasos = 0;" , bucle_while_collatz , "pasos" , "}" ;
 bloque_while           ::= "{" , condicional_if_collatz , "pasos += 1;" , "}" ;
 bloque_if_par          ::= "{" , "num /= 2;" , "}" ;
