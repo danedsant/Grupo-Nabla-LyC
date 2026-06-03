@@ -1,0 +1,27 @@
+init_grid
+
+MIENTRAS VERDADERO EJECUTAR
+    t_actual = leer_temperatura(BAT_01)
+    
+    SI t_actual > 55.0 ENTONCES
+        // Activar sistemas de refrigeración auxiliar
+        conmutar_linea(REFRI_AUX, VERDADERO)
+        
+        // Detener el ingreso térmico aislando paneles solares
+        conmutar_linea(PANEL_SOLAR_IN, FALSO)
+        
+        // Desviar consumo industrial a la red comercial de respaldo
+        conmutar_linea(SECTOR_INDUSTRIAL_LOCAL, FALSO)
+        conmutar_linea(RED_COMERCIAL_BACKUP, VERDADERO)
+        
+        alerta_emergencia("CRÍTICO: Fuga térmica detectada en BAT_01. Protocolo de alivio activado.")
+    SINO
+        // Protocolo de normalización y retorno seguro
+        SI t_actual < 45.0 ENTONCES
+            conmutar_linea(REFRI_AUX, FALSO)
+            conmutar_linea(PANEL_SOLAR_IN, VERDADERO)
+            conmutar_linea(SECTOR_INDUSTRIAL_LOCAL, VERDADERO)
+            conmutar_linea(RED_COMERCIAL_BACKUP, FALSO)
+        FIN_SI
+    FIN_SI
+FIN_MIENTRAS
