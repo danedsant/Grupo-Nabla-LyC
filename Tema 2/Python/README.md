@@ -2,39 +2,36 @@
 
 A continuación se detalla la documentación formal de las estructuras de control (subprogramas, bucles y condicionales) utilizadas exactamente en el código fuente de Python, empleando la notación **EBNF (Extended Backus-Naur Form)**.
 
-<pre>
-(* Definiciones de Subprogramas *)
-&lt;subprograma_collatz&gt;     ::= "def collatz(num):" &lt;bloque_collatz&gt;
-&lt;subprograma_pedir&gt;       ::= "def pedir_numero():" &lt;bloque_pedir&gt;
-&lt;subprograma_ejecutar&gt;    ::= "def ejecutar():" &lt;bloque_ejecutar&gt;
-&lt;condicional_principal&gt;   ::= "if __name__ == '__main__':" &lt;bloque_principal&gt;
 
-(* Bucles *)
-&lt;bucle_while_collatz&gt;     ::= "while num > 1:" &lt;bloque_while_c&gt;
-&lt;bucle_while_pedir&gt;       ::= "while True:" &lt;bloque_while_p&gt;
-&lt;bucle_for_ejecutar&gt;      ::= "for i in range(1, n):" &lt;bloque_for&gt;
+###   DEFINICIONES DE SUBPROGRAMAS
+```
+subprograma_collatz    ::= "function collatz(num)" , bloque_collatz ;
+subprograma_pedir      ::= "function pedirNumero()" , bloque_pedir ;
+subprograma_ejecutar   ::= "async function ejecutar()" , bloque_ejecutar ;
+```
 
-(* Condicionales *)
-&lt;condicional_if_collatz&gt;  ::= "if num % 2 == 0:" &lt;bloque_if_par&gt; "else:" &lt;bloque_else_impar&gt;
-&lt;condicional_if_pedir&gt;    ::= "if n <= 50:" &lt;bloque_if_error&gt; "else:" &lt;bloque_else_valido&gt;
-&lt;estructura_try_except&gt;   ::= "try:" &lt;bloque_try&gt; "except ValueError:" &lt;bloque_except&gt;
+###   ESTRUCTURAS CÍCLICAS (BUCLES)
+ ``` 
+bucle_while_collatz    ::= "while (num > 1)" , bloque_while_c ;
+bucle_for_ejecutar     ::= "for (let i = 1; i < intN; i++)" , bloque_for ;
+```
 
-(* Bloques de Código del Programa (Indentación) *)
-&lt;bloque_collatz&gt;          ::= "pasos = 0" &lt;bucle_while_collatz&gt; "return pasos"
-&lt;bloque_while_c&gt;          ::= &lt;condicional_if_collatz&gt; "pasos += 1"
-&lt;bloque_if_par&gt;           ::= "num //= 2"
-&lt;bloque_else_impar&gt;       ::= "num = 3 * num + 1"
+###   ESTRUCTURAS CONDICIONALES
+``` 
+condicional_if_collatz ::= "if (num % 2 === 0)" , bloque_if_par , [ "else" , bloque_else_impar ] ;
+condicional_if_pedir   ::= "if (isNaN(respuesta) || parseInt(respuesta) <= 50)" , bloque_if_error , [ "else" , bloque_else_valido ] ;
+```
+### BLOQUES DE CÓDIGO DEL PROGRAMA (DELIMITADORES DE BLOQUE)
+``` 
+bloque_collatz         ::= "{" , "let pasos = 0;" , bucle_while_collatz , "return pasos;" , "}" ;
+bloque_while_c         ::= "{" , condicional_if_collatz , "pasos++" , "}" ;
+bloque_if_par          ::= "{" , "num /= 2;" , "}" ;
+bloque_else_impar      ::= "{" , "num = 3 * num + 1;" , "}" ;
 
-&lt;bloque_pedir&gt;            ::= &lt;bucle_while_pedir&gt;
-&lt;bloque_while_p&gt;          ::= 'respuesta = input("Ingresa un numero entero positivo mayor a 50: ")' &lt;estructura_try_except&gt;
-&lt;bloque_try&gt;              ::= "n = int(respuesta)" &lt;condicional_if_pedir&gt;
-&lt;bloque_if_error&gt;         ::= 'print("Error, el numero debe ser mayor a 50.")'
-&lt;bloque_else_valido&gt;      ::= "return n"
-&lt;bloque_except&gt;           ::= 'print("Error, ingresa un numero entero valido mayor a 50")'
+bloque_pedir           ::= "{" , "return new Promise((resolve) => {" , "rl.question('Ingresa un número entero positivo: ', (respuesta) => {" , condicional_if_pedir , "});" , "});" , "}" ;
+bloque_if_error        ::= "{" , "console.log(isNaN(respuesta) ? 'Error...' : 'Error...');" , "resolve(pedirNumero());" , "}" ;
+bloque_else_valido     ::= "{" , "resolve(respuesta);" , "}" ;
 
-&lt;bloque_ejecutar&gt;         ::= "n = pedir_numero()" "tiempo_inicio = time.perf_counter()" "pasos_totales = 0" &lt;bucle_for_ejecutar&gt; "tiempo_fin = time.perf_counter()" 'print(f"Pasos totales calculados: {pasos_totales}")' 'print(f"Tiempo: {(tiempo_fin - tiempo_inicio) * 1000:.4f} ms")'
-&lt;bloque_for&gt;              ::= "pasos_totales += collatz(i)"
-
-&lt;bloque_principal&gt;         ::= "ejecutar()"
-</pre>
-
+bloque_ejecutar        ::= "{" , "const intN = parseInt(await pedirNumero());" , "const tiempo_inicio = performance.now();" , "let pasos_totales = 0;" , bucle_for_ejecutar , "const tiempo_fin = performance.now();" , "console.log(...);" , "rl.close();" , "}" ;
+```
+bloque_for             ::= "{" , "pasos_totales += collatz(i);" , "}" ;
