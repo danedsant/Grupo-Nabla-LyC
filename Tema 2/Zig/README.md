@@ -2,32 +2,32 @@
 
 A continuación, se detalla la documentación formal de las estructuras de control (subprogramas, bucles y condicionales) utilizadas exactamente en el código fuente de Zig, empleando la notación **EBNF (Extended Backus-Naur Form)** para describir la jerarquía sintáctica construida.
 
-```text
-(* ==========================================
-   DEFINICIONES DE SUBPROGRAMAS
-   ========================================== *)
+
+
+###   DEFINICIONES DE SUBPROGRAMAS
+```  
 subprograma_collatz    ::= "fn collatz(start_num: u64) u64" , bloque_collatz ;
 subprograma_pedir      ::= "fn pedirNumero(stdout: anytype) !u64" , bloque_pedir ;
 subprograma_main       ::= "pub fn main() !void" , bloque_main ;
+```
 
-(* ==========================================
-   ESTRUCTURAS CÍCLICAS (BUCLES)
-   ========================================== *)
+###   ESTRUCTURAS CÍCLICAS (BUCLES)
+```
 bucle_while_collatz    ::= "while (num > 1)" , bloque_while_c ;
 bucle_while_pedir      ::= "while (true)" , bloque_while_p ;
 bucle_for_main         ::= "for (1..n) |i|" , bloque_for ;
+```
 
-(* ==========================================
-   ESTRUCTURAS CONDICIONALES
-   ========================================== *)
+###   ESTRUCTURAS CONDICIONALES
+```
 condicional_if_collatz ::= "if (num % 2 == 0)" , bloque_if_par , [ "else" , bloque_else_impar ] ;
 condicional_if_capture ::= "if (try stdin.readUntilDelimiterOrEof(...)) |user_input|" , bloque_capture ;
 estructura_catch_pedir ::= "const n = std.fmt.parseInt(...)" , "catch" , bloque_catch ;
 condicional_if_pedir   ::= "if (n <= 50)" , bloque_if_error , [ "else" , bloque_else_valido ] ;
+```
 
-(* ==========================================
-   BLOQUES DE CÓDIGO DEL PROGRAMA
-   ========================================== *)
+###   BLOQUES DE CÓDIGO DEL PROGRAMA
+```
 bloque_collatz         ::= "{" , "var num = start_num;" , "var pasos: u64 = 0;" , bucle_while_collatz , "return pasos;" , "}" ;
 bloque_while_c         ::= "{" , condicional_if_collatz , "pasos += 1;" , "}" ;
 bloque_if_par          ::= "{" , "num /= 2;" , "}" ;
