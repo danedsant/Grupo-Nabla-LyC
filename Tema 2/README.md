@@ -92,6 +92,6 @@ zig run collatz.zig
 | Rust | 5,1656 ms |
 | Zig  | 5,6156 ms |
 | Javascript | 21,6821 ms |
-|Python | 660,3963 ms |
+|Python | 600,3963 ms |
 
 Al analizar estos resultados, ordenados de manera ascendente, podemos notar que indiscutiblemente Rust se posiciona como el ganador en esta ocasión, lo que evidencia y valida cómo las decisiones del diseño léxico y sintáctico en cada lenguaje impactan directamente en el rendimiento del hardware. Asimismo, es posible observar cómo la flexibilidad y velocidad de escritura que Python ofrece al desarrollador tiene un costo computacional severo: al carecer de tokens de tipado estricto, obliga a la máquina a inferir y validar dinámicamente, en cada iteración, si una variable es un entero antes de aplicar una operación matemática, sacrificando así la velocidad de procesamiento.
