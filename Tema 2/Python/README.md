@@ -33,5 +33,6 @@ bloque_if_error        ::= "{" , "console.log(isNaN(respuesta) ? 'Error...' : 'E
 bloque_else_valido     ::= "{" , "resolve(respuesta);" , "}" ;
 
 bloque_ejecutar        ::= "{" , "const intN = parseInt(await pedirNumero());" , "const tiempo_inicio = performance.now();" , "let pasos_totales = 0;" , bucle_for_ejecutar , "const tiempo_fin = performance.now();" , "console.log(...);" , "rl.close();" , "}" ;
-```
+
 bloque_for             ::= "{" , "pasos_totales += collatz(i);" , "}" ;
+```
