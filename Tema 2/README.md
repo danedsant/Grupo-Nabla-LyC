@@ -76,7 +76,7 @@ cargo run --release
  - Ejecutar el siguiente comando:
 
  ```
-zig run collatz.zig
+zig run collatz.zig -O ReleaseFast
 ```
 
 ## Especificaciones del entorno de prueba
