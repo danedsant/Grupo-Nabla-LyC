@@ -2,29 +2,28 @@
 
 A continuación, se detalla la documentación formal de las estructuras de control (subprogramas, bucles y condicionales) utilizadas exactamente en el código fuente de JavaScript, empleando la notación **EBNF (Extended Backus-Naur Form)** para describir la jerarquía sintáctica construida.
 
-```text
-(* ==========================================
-   DEFINICIONES DE SUBPROGRAMAS
-   ========================================== *)
+
+
+###   DEFINICIONES DE SUBPROGRAMAS
+```
 subprograma_collatz    ::= "function collatz(num)" , bloque_collatz ;
 subprograma_pedir      ::= "function pedirNumero()" , bloque_pedir ;
 subprograma_ejecutar   ::= "async function ejecutar()" , bloque_ejecutar ;
+```
 
-(* ==========================================
-   ESTRUCTURAS CÍCLICAS (BUCLES)
-   ========================================== *)
+###  ESTRUCTURAS CÍCLICAS (BUCLES)
+``` 
 bucle_while_collatz    ::= "while (num > 1)" , bloque_while ;
 bucle_for_ejecutar     ::= "for (let i = 1; i < intN; i++)" , bloque_for ;
+``` 
 
-(* ==========================================
-   ESTRUCTURAS CONDICIONALES
-   ========================================== *)
+###  ESTRUCTURAS CONDICIONALES
+```
 condicional_if_collatz ::= "if (num % 2 === 0)" , bloque_if_par , [ "else" , bloque_else_impar ] ;
 condicional_if_pedir   ::= "if (isNaN(respuesta) || parseInt(respuesta) <= 50)" , bloque_if_error , [ "else" , bloque_else_valido ] ;
-
-(* ==========================================
-   BLOQUES DE CÓDIGO DEL PROGRAMA
-   ========================================== *)
+```
+###  BLOQUES DE CÓDIGO DEL PROGRAMA
+```
 bloque_collatz         ::= "{" , "let pasos = 0;" , bucle_while_collatz , "return pasos;" , "}" ;
 bloque_while           ::= "{" , condicional_if_collatz , "pasos++" , "}" ;
 bloque_if_par          ::= "{" , "num /= 2;" , "}" ;
