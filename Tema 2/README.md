@@ -1,6 +1,6 @@
 # 📚 Tema 2: Los Lenguajes de Programación
 
-Este apartado contiene los recursos, investigaciones y códigos desarrollados por el **Grupo Nabla** correspondientes al Tema 2 de la asignatura Lenguajes y Compiladores. El enfoque principal es el análisis de la infraestructura lingüística y computacional de las herramientas de desarrollo modernas.
+Este apartado contiene los recursos, investigaciones y códigos desarrollados por el **Grupo Nabla** correspondientes al Tema 2 de la asignatura Lenguajes y Compiladores.
 
 ### Enlace a defensa 
 - https://www.youtube.com/watch?v=c_5YSLEfxQU
@@ -12,11 +12,11 @@ Este apartado contiene los recursos, investigaciones y códigos desarrollados po
 
 El desarrollo de este tema se estructuró en tres actividades principales:
 
-* **Actividad I: Fundamentación Teórica e Investigación**
+* **Actividad I: Matriz Descriptiva y Análisis de Paradigmática**
 
-    Elaboración de un informe académico y su respectiva defensa (diapositivas) sobre la *"Arquitectura de Lenguajes y Compiladores"*. En esta etapa se establecieron las bases de los paradigmas de programación (Imperativo, Orientado a Objetos, Funcional, etc.) y se analizó el lenguaje como un producto de software sujeto a restricciones formales rigurosas.
+    Elaboración de un informe académico y su respectiva defensa sobre la *"Arquitectura de Lenguajes y Compiladores"*. En esta etapa se establecieron las bases de los paradigmas de programación (Imperativo, Orientado a Objetos, Funcional, etc.) y se analizó el lenguaje como un producto de software sujeto a restricciones formales rigurosas.
 ---
-* **Actividad II: Benchmarking Estructural (Conjetura de Collatz)**
+* **Actividad II: Benchmarking Estructural - Conjetura de Collatz**
 
     Prueba empírica de procesamiento intensivo utilizando la Conjetura de Collatz para medir y comparar el rendimiento de ejecución. Se implementaron algoritmos en **Python, JavaScript, Rust y Zig** para evidenciar cómo el diseño léxico (como el tipado dinámico vs. estático) impacta directamente en la velocidad de la máquina y el consumo de recursos de hardware.
 ---
