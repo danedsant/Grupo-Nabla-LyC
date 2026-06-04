@@ -11,25 +11,29 @@ La conjetura establece que para cualquier numero entero positivo **N**, eventual
 
 El programa no debe evaluar un unico valor, sino que debe calcular de forma iterativa y continua los pasos requeridos para todos los numeros estrictamente menores al **N** ingresado por el usuario, donde **N > 50**
 
-## Estructura
+## 🗂️ Estructura 
 ```
-├── python/
-│   ├── collatz.py
-│   └── README.md
-├── javascript/
+Actividad II/
+├── Javascript/
 │   ├── collatz.js
 │   └── README.md
-├── rust/
-│   └── src/
-│       └── main.rs
+├── Python/
+│   ├── collatz.py
 │   └── README.md
-├── zig/
-│   └── collatz.zig
+├── Rust/
+│   ├── src/
+│   │   └── main.rs
+│   ├── .gitignore
+│   ├── Cargo.lock
+│   ├── Cargo.toml
+│   └── README.md
+├── Zig/
+│   ├── collatz.zig
 │   └── README.md
 └── README.md
 ```
 
-## Dependencias
+## 📦 Dependencias
 
 Para ejecutar los siguientes lenguajes se pueden instalar sus respectivas dependencias mediante `winget` en la terminal de windows basados en la siguiente tabla:
 
@@ -48,9 +52,9 @@ Para ejecutar los siguientes lenguajes se pueden instalar sus respectivas depend
 > La instalacion de las dependencias descritas añade automaticamente al PATH cada lenguaje respectivamente
 
 
-## Ejecucion de los codigos
+## ▶️ Ejecucion de los codigos
 
-### Python
+### ![Python](https://img.shields.io/badge/-%20-3670A0?style=flat&logo=python&logoColor=ffdd54) Python
  - Abrir una terminal en la carpeta Python/
  - Ejecutar el siguiente comando:
 
@@ -58,7 +62,7 @@ Para ejecutar los siguientes lenguajes se pueden instalar sus respectivas depend
 python collatz.py
 ```
 
-### Javascript
+### ![JavaScript](https://img.shields.io/badge/-%20-323330?style=flat&logo=javascript&logoColor=%23F7DF1E) Javascript
  - Abrir una terminal en la carpeta Javascript/
  - Ejecutar el siguiente comando:
 
@@ -66,7 +70,7 @@ python collatz.py
 node collatz.js
 ```
 
-### Rust
+### ![Rust](https://img.shields.io/badge/-%20-000000?style=flat&logo=rust&logoColor=white) Rust
  - Abrir una terminal en la carpeta Rust/
  - Ejecutar el siguiente comando:
 
@@ -74,7 +78,7 @@ node collatz.js
 cargo run --release
 ```
 
-### Zig
+### ![Zig](https://img.shields.io/badge/-%20-F7A41D?style=flat&logo=zig&logoColor=white) Zig
  - Abrir una terminal en la carpeta Zig/
  - Ejecutar el siguiente comando:
 
@@ -82,14 +86,14 @@ cargo run --release
 zig run collatz.zig -O ReleaseFast
 ```
 
-## Especificaciones del entorno de prueba
+## 💻 Especificaciones del entorno de prueba
 | Item | Descripcion |
 | ----------- | ----------- |
 | Sistema Operativo | Windows 11 Pro  |
 | CPU | Intel(R) Core(TM) i5-8250U CPU @ 1.60GHz (1.80 GHz) |
 | Memoria RAM | 16 GB |
 
-## Resultado del Benchmarking
+## 📊 Resultado del Benchmarking
 | Lenguaje | Tiempo en ms |
 | ----------- | ----------- |
 | Rust | 5,1656 ms |

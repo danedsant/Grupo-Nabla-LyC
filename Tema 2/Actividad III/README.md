@@ -3,13 +3,13 @@
 
 Este apartado contiene la especificación formal, reglas gramaticales y scripts de prueba operativos del **Lenguaje L**, un Lenguaje de Dominio Específico (DSL) diseñado conceptualmente para el control automatizado, balance de carga autónomo y prevención de fallos críticos en el ecosistema de microredes eléctricas **ECO-GRID**.
 
-## Descripción General
+## 📋 Descripción General
 
 El **Lenguaje L** fue diseñado bajo restricciones formales rigurosas con el objetivo de ofrecer una abstracción de hardware simplificada y segura para ingenieros de sistemas energéticos. Al eliminar la complejidad de propósitos generales, permite un procesamiento directo, reduciendo la ambigüedad en entornos que demandan respuestas en tiempo real.
 
 ---
 
-## Especificación Formal y Reglas Léxicas
+## 🛠️ Especificación Formal y Reglas Léxicas
 
 ### 1. Alfabeto y Sintaxis Base
 * **Caracteres Válidos:** Letras del alfabeto latino (`a-z`, `A-Z`), dígitos numéricos (`0-9`), guión bajo (`_`) y símbolos delimitadores/operadores (`(`, `)`, `,`, `=`, `>`, `<`).
@@ -25,7 +25,7 @@ El analizador léxico procesa los espacios en blanco, tabulaciones y saltos de l
 
 ---
 
-## Palabras Clave y Primitivas Nativas
+## 📋 Palabras Clave y Primitivas Nativas
 
 El DSL cuenta con un conjunto restringido de palabras reservadas e instrucciones nativas mapeadas directamente al hardware de la microred:
 
@@ -40,7 +40,7 @@ El DSL cuenta con un conjunto restringido de palabras reservadas e instrucciones
 
 ---
 
-## Gramática Sintáctica Abstracta (BNF)
+## 📋 Gramática Sintáctica Abstracta (BNF)
 
 Para garantizar un parsing determinista y libre de ambigüedades, el árbol de análisis sintáctico (AST) se rige bajo la siguiente notación Backus-Naur Form (BNF) expandida:
 
