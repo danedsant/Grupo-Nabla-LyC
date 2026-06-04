@@ -1,0 +1,23 @@
+init_grid
+carga_bat = estado_carga(BAT_01)
+produccion_solar = leer_flujo(INVERSOR_SOLAR)
+demanda_interna = leer_flujo(INVERSOR_INTERNO)
+
+// CONDICIÓN 1: Venta e inyección de excedente energético
+SI carga_bat > 90 Y produccion_solar > demanda_interna ENTONCES
+    conmutar_linea(RELE_INYECCION_PUBLICA, VERDADERO)
+    alerta_emergencia("OPTIMIZACIÓN: Inyectando excedente energético a la red general.")
+SINO
+    conmutar_linea(RELE_INYECCION_PUBLICA, FALSO)
+FIN_SI
+
+// CONDICIÓN 2: Racionamiento y protección de infraestructura crítica
+SI carga_bat < 20 ENTONCES
+    // Desconectar cargas no esenciales (oficinas, almacenes)
+    conmutar_linea(SECTOR_FABRICA_NO_ESENCIAL, FALSO)
+    
+    // Preservar suministro en áreas de alta prioridad
+    conmutar_linea(SECTOR_AREAS_MEDICAS, VERDADERO)
+    conmutar_linea(SECTOR_SERVIDORES_CRITICOS, VERDADERO)
+    alerta_emergencia("SISTEMA EN RACIONAMIENTO: Sectores no esenciales aislados. Batería baja.")
+FIN_SI
