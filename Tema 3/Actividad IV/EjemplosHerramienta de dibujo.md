@@ -9,9 +9,13 @@
 **Proceso de Derivación Formal:**
 
 S → acacacacC1 (Aplicando Regla 1) 
+
 → acacacac(gcacaaacatC2) (Aplicando Regla 4: C1 → gcacaaacatC2) 
+
 → acacacacgcacaaacat(cacagcacacaacatC3) (Aplicando Regla 5:  C2 → cacagcacacaacatC3)  
+
 → acacacacgcacaaacatcacagcacacaacat(caca) (Aplicando Regla 6:  C3 → caca) 
+
 → acacacacgcacaaacatcacagcacacaacatcaca (Cadena terminal validada)
 
 ### Árbol de Análisis Sintáctico: 
@@ -28,7 +32,9 @@ S → acacacacC1 (Aplicando Regla 1)
 **Proceso de Derivación Formal:**
 
 S → acacacacC (Aplicando Regla 1) 
+
 → acacacac(caca) (Derivación directa simplificada bajo sustitución de subconjunto de terminales)
+
 → acacacacacacac (Cadena terminal alcanzada)
 
 **Mecanismo de Ejecución Gráfica:** Alterna de forma iterativa y secuencial pasos de avance vertical (a), rotación angular orientativa (c), y avance horizontal (a), generando una figura de peldaños en serie perfectamente balanceada. 
