@@ -33,7 +33,7 @@ S → acacacacC1 (Aplicando Regla 1)
 → acacacacgcacaaacatcacagcacacaacat(caca) (Aplicando Regla 6:  C3 → caca) 
 → acacacacgcacaaacatcacagcacacaacatcaca (Cadena terminal validada)
 
-**Árbol de Análisis Sintáctico:**
+### 3. Expresión Regular (Regex)
 
 <img width="535" height="251" alt="image" src="https://github.com/user-attachments/assets/0a357527-ca99-4734-8c4e-88a1f4695e5b" />
 
