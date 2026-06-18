@@ -1,6 +1,6 @@
 # 📚 Tema 3 - Lenguajes y Gramáticas Formales
 
-## 📜 Descripción del repositorio
+## 📜 Descripción del Tema 3
 
 Este repositorio contiene el informe con la investigación teórica y el desarrollo práctico correspondiente al Tema de Lenguajes y Gramáticas Formales, el cual explora los fundamentos matemáticos y lógicos que rigen la creación, validación y procesamiento de lenguajes de programación, abarcando desde las reglas morfosintácticas generadoras hasta el diseño de autómatas para la fase léxica de un compilador.
 
