@@ -16,3 +16,7 @@ $$\Sigma = \{a, b, c, d, e, f, g, h, 1, 2, 3, 4, 5, 6, 7, 8, R, N, B, Q, K\}$$
 ### 3. Expresión Regular (Regex)
 ```regex
 ^([RNBQK]?[a-h][1-8])$
+```
+
+### Demostracion interactiva
+- https://ana-lex-grupo-nabla.vercel.app/

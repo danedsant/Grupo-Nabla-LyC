@@ -4,6 +4,12 @@
 
 Este repositorio contiene el informe con la investigación teórica y el desarrollo práctico correspondiente al Tema de Lenguajes y Gramáticas Formales, el cual explora los fundamentos matemáticos y lógicos que rigen la creación, validación y procesamiento de lenguajes de programación, abarcando desde las reglas morfosintácticas generadoras hasta el diseño de autómatas para la fase léxica de un compilador.
 
+### 📹 Video Defensa
+ - https://www.youtube.com/watch?v=Qmw8FDHLOks
+ <a href="https://www.youtube.com/watch?v=Qmw8FDHLOks" target="_blank">
+  <img src="https://img.youtube.com/vi/Qmw8FDHLOks/maxresdefault.jpg" alt="Miniatura del video" width="300" />
+</a>
+
 ## 📖 Resumen del contenido
 
 ### 1. Relación Entre Gramática y Lenguaje
@@ -48,4 +54,13 @@ ___
 ### 5. De la Expresión al Autómata - Caso Práctico: Ajedrez PGN
 
 Abstracción de la fase léxica aplicada al estándar Portable Game Notation (PGN). Se diseña una Expresión Regular (Regex) estricta para validar un subconjunto de movimientos tácticos básicos de peones y piezas mayores, modelando su correspondiente Autómata Finito Determinístico (AFD) para garantizar un procesamiento de reconocimiento en tiempo lineal.
-
+___
+## 📁Estructura Tema 3
+```
+Tema 3/
+├── Analizador Lexico.html
+├── Ejemplo Ajedrez PGN.md
+├── Ejemplos Herramienta de dibujo.md
+├── README.md
+└── Tema 3 - Informe - Grupo Nabla.pdf
+```
