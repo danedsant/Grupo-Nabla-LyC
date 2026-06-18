@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analizador Léxico PGN</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 650px;
+            width: 100%;
+            background-color: #1e1e1e;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            border: 1px solid #333;
+        }
+
+        h2,
+        h3 {
+            color: #4fbf67;
+            text-align: center;
+            margin-top: 0;
+        }
+
+        .subtitle {
+            font-size: 0.9em;
+            color: #aaa;
+            text-align: center;
+            margin-bottom: 25px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            box-sizing: border-box;
+            background-color: #2a2a2a;
+            border: 1px solid #444;
+            color: #fff;
+            border-radius: 4px;
+            font-size: 1.1em;
+            text-transform: uppercase;
+        }
+
+        input[type="text"]:focus {
+            border-color: #4fbf67;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4fbf67;
+            color: #121212;
+            border: none;
+            font-weight: bold;
+            font-size: 1em;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: #3ca353;
+        }
+
+        .result-box {
+            margin-top: 25px;
+            padding: 15px;
+            border-radius: 4px;
+            display: none;
+        }
+
+        .success {
+            background-color: rgba(79, 191, 103, 0.15);
+            border: 1px solid #4fbf67;
+            color: #4fbf67;
+        }
+
+        .error {
+            background-color: rgba(244, 67, 54, 0.15);
+            border: 1px solid #f44336;
+            color: #f44336;
+        }
+
+        .trace {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #111;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: #00ff66;
+            border: 1px solid #222;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Analizador Léxico PGN</h2>
+        <div class="subtitle">UNEG - Lenguajes y Compiladores | Grupo Nabla </div>
+
+        <div class="form-group">
+            <label for="moveInput">Ingrese movimiento en PGN Simplificado (Ej: E4, Nf3, Qh5):</label>
+            <input type="text" id="moveInput" placeholder="Ej. NF3" maxlength="5">
+        </div>
+
+        <button onclick="analizarCadena()">Procesar Movimiento</button>
+
+        <div id="resultBox" class="result-box">
+            <strong id="resultTitle"></strong>
+            <p id="resultDesc"></p>
+            <div id="afdTrace" class="trace"></div>
+        </div>
+    </div>
+
+    <script>
+        function analizarCadena() {
+            const input = document.getElementById('moveInput').value.trim();
+            const resultBox = document.getElementById('resultBox');
+            const resultTitle = document.getElementById('resultTitle');
+            const resultDesc = document.getElementById('resultDesc');
+            const afdTrace = document.getElementById('afdTrace');
+
+            if (input === "") {
+                alert("Por favor, ingrese una jugada para evaluar.");
+                return;
+            }
+
+            // --- 1. VALIDACIÓN POR EXPRESIÓN REGULAR ---
+            const regexPGN = /^([RNBQK]?[a-h][1-8])$/i;
+            const pasaRegex = regexPGN.test(input);
+
+            // --- 2. SIMULACIÓN DEL AUTÓMATA FINITO DETERMINÍSTICO (AFD) ---
+            let estadoActual = "q0";
+            let trazaTokens = `Estado Inicial: [q0]\n`;
+            let errorLéxico = false;
+
+            // Recorrido formal del flujo de caracteres
+            for (let i = 0; i < input.length; i++) {
+                let char = input[i].toUpperCase();
+                let estadoAnterior = estadoActual;
+
+                if (estadoActual === "q0") {
+                    if ("RNBQK".includes(char)) {
+                        estadoActual = "q1";
+                    } else if ("ABCDEFGH".includes(char)) {
+                        estadoActual = "q2";
+                    } else {
+                        estadoActual = "q_error";
+                        errorLéxico = true;
+                    }
+                }
+                else if (estadoActual === "q1") {
+                    if ("ABCDEFGH".includes(char)) {
+                        estadoActual = "q2";
+                    } else {
+                        estadoActual = "q_error";
+                        errorLéxico = true;
+                    }
+                }
+                else if (estadoActual === "q2") {
+                    if ("12345678".includes(char)) {
+                        estadoActual = "q3"; // Estado de Aceptación
+                    } else {
+                        estadoActual = "q_error";
+                        errorLéxico = true;
+                    }
+                }
+                else if (estadoActual === "q3" || estadoActual === "q_error") {
+                    // Cualquier símbolo extra después del estado de aceptación rompe la cadena lineal de Tipo 3
+                    estadoActual = "q_error";
+                    errorLéxico = true;
+                }
+
+                trazaTokens += `Lee '${char}': Transición [${estadoAnterior}] ➔ [${estadoActual}]\n`;
+                if (errorLéxico) break;
+            }
+
+            // --- 3. PRESENTACIÓN DE RESULTADOS ---
+            resultBox.style.display = "block";
+            afdTrace.innerText = trazaTokens + `Estado Final del Autómata: [${estadoActual}]`;
+
+            // Evaluación de pertenencia al lenguaje formal L
+            if (pasaRegex && estadoActual === "q3") {
+                resultBox.className = "result-box success";
+                resultTitle.innerText = "✓ CADENA ACEPTADA";
+                resultDesc.innerText = `La jugada "${input}" pertenece al lenguaje. Estructura sintáctica e índice de transiciones válidos.`;
+            } else {
+                resultBox.className = "result-box error";
+                resultTitle.innerText = "✗ CADENA RECHAZADA";
+                resultDesc.innerText = `La entrada "${input}" contiene errores morfológicos o no cumple con la secuencia Pieza(opcional)->Columna->Fila.`;
+            }
+        }
+    </script>
+
+</body>
+
+</html>
