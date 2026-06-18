@@ -63,5 +63,6 @@ Tema 3/
 ├── Ejemplos BNF Jerarquia Chomspky.md
 ├── Ejemplos Herramienta de dibujo.md
 ├── README.md
+├── Tema 3 - Diapositivas Defensa - Grupo Nabla.pdf
 └── Tema 3 - Informe - Grupo Nabla.pdf
 ```
