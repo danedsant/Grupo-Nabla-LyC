@@ -12,7 +12,7 @@
 | 4 |    |
 | 5 |    |
 
-## 📜 Intregrantes del Grupo Nabla ▽
+## 📜 Integrantes del Grupo Nabla ▽
 
 | Nombre y Apellido | CI |
 | ------------- | ------------- |
