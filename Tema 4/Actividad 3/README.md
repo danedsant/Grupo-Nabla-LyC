@@ -19,3 +19,19 @@ es mandatorio contar con las siguientes herramientas instaladas en su entorno de
 
 **sudo apt install flex build-essential -y**
 
+## Instalación de Dependencias (Windows <img width="20" height="20" alt="image" src="https://github.com/user-attachments/assets/ec844411-9bc4-403a-97b5-418b801ec434" />)
+
+Para compilar y ejecutar este proyecto en Windows, se requiere configurar manualmente las herramientas de compilación o utilizar una terminal emulada. Siga uno de los siguientes métodos:
+
+#### Método 1: Configuración Manual (Recomendado para tu entorno actual)
+
+- **Flex:** Descargue e instale el paquete binario de Flex para Windows desde el proyecto GnuWin32 (instalado típicamente en `C:\Program Files (x86)\GnuWin32\bin\flex.exe`).
+- **Compilador C++ (MinGW/GCC):** Asegúrese de contar con un entorno GCC para Windows, como el incluido en **Dev-C++** o **MinGW-w64** (ubicado típicamente en `C:\Dev-Cpp\MinGW64\bin\g++.exe`).
+- **Variable de Entorno (Opcional):** Se recomienda añadir ambas rutas binarias al `PATH` del sistema para poder invocar directamente los comandos `flex` y `g++` sin necesidad de escribir sus rutas absolutas.
+
+#### Método 2: Usando el Gestor de Paquetes Chocolatey (Alternativa Automatizada)
+Si tiene instalado el gestor de paquetes Chocolatey en la PowerShell de Windows, puede instalar ambas herramientas ejecutando:
+
+**```bash**
+
+**choco install winflexbison mingw -y**
