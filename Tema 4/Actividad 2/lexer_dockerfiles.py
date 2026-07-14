@@ -2,7 +2,6 @@ import re
 import sys
 
 # Definicion del diccionario de tokens y expresiones regulares para Dockerfile
-# a traves de una tupla
 
 tokens_docker = [
     # ELEMENTOS IGNORABLES Y DE CONTROL
@@ -10,7 +9,7 @@ tokens_docker = [
     ('TK_SPACE', r'[\t ]+'),
     ('TK_NEWLINE', r'\n'),
 
-    # PALABRAS RESERVADAS (Específicas)
+    # PALABRAS RESERVADAS
     ('TK_FROM', r'\bFROM\b'),
     ('TK_RUN', r'\bRUN\b'),
     ('TK_WORKDIR', r'\bWORKDIR\b'),
@@ -57,7 +56,7 @@ def lexer(texto_fuente):
 
             # Si se encuentra un token no reconocido, se indica el error lexico y se detiene la ejecucion del programa
             columna = coincidencia.start() - inicio_linea
-            print(f"\n[!] ERROR LEXICO: Caracter no reconocido '{lexema}' en la linea {linea_actual}, columna {columna}")
+            print(f"\nERROR LEXICO: Caracter no reconocido '{lexema}' en la linea {linea_actual}, columna {columna}")
             sys.exit(1) 
             
         else:
@@ -65,7 +64,7 @@ def lexer(texto_fuente):
             columna = coincidencia.start() - inicio_linea
             print(f"Token: {tipo_token:<15} | Lexema: {lexema:<20} | Línea: {linea_actual}")
 
-#Lectura del archivo dockerfile
+# Lectura del archivo dockerfile
 def cargar_archivo(nombre_archivo):
 
     try:
