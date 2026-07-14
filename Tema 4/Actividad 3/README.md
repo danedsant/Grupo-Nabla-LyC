@@ -56,14 +56,16 @@ Este comando compila las expresiones regulares abstractas en un Autómata Finito
 ```bash
 flex -o lex.yy.cc lexer.l
 ```
-**Nota:** Esto creará un nuevo archivo en su directorio llamado lex.yy.cc
+> [!NOTE]
+> Esto creará un nuevo archivo en su directorio llamado lex.yy.cc
 
 ### Paso 2: Compilar el código generado mediante G++
 Se utiliza el compilador de C++ para empaquetar las rutinas de bajo nivel del buffer de Flex junto al ejecutable final optimizado.
 ```
 g++ lex.yy.cc -o lexer_rust
 ```
-**Nota:** Esto generará el binario ejecutable llamado lexer_rust (o lexer_rust.exe en entornos Windows nativos).
+> [!NOTE]
+> Esto generará el binario ejecutable llamado lexer_rust (o lexer_rust.exe en entornos Windows nativos).
 
 ### Paso 3: Ejecutar el analizador léxico pasándole un archivo de prueba
 Invoque el programa binario redirigiendo el flujo de lectura hacia su archivo de código de pruebas:
