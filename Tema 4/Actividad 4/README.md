@@ -1,9 +1,5 @@
 # Actividad 4: Aplicación de Metacompiladores (FLEX) en Seguridad Informática
 
-Este módulo del repositorio contiene la documentación, el análisis teórico y la propuesta de diseño para la **Actividad 4** de la asignatura **Lenguajes y Compiladores** (Sección 01) en la **Universidad Nacional Experimental de Guayana (UNEG)**.
-
----
-
 ## 📌 Contexto del Caso de Estudio: Reglas de Snort (IDS/IPS)
 
 El análisis de tráfico y la detección de amenazas en redes de computadoras exigen un rendimiento crítico en tiempo real. Para resolver este desafío, los Sistemas de Detección/Prevención de Intrusos (IDS/IPS) como **Snort** emplean un lenguaje específico basado en firmas (reglas).
