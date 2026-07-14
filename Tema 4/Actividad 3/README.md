@@ -12,7 +12,7 @@ es mandatorio contar con las siguientes herramientas instaladas en su entorno de
 - **GCC / G++:** Compilador nativo de <img width="20" height="20" alt="image" src="https://github.com/user-attachments/assets/b70a6d38-d47d-4fc1-8131-fd96126c59d3" />.
 
 ## Instalación de Dependencias (Ubuntu <img width="20" height="20" alt="image" src="https://github.com/user-attachments/assets/0a7d0ab6-04be-4492-8b86-441c6de7b13b" />)
-```
+
 ```bash
 sudo apt update
 
@@ -33,7 +33,7 @@ Para compilar y ejecutar este proyecto en Windows, se requiere configurar manual
 
 ### Método 2: Usando el Gestor de Paquetes Chocolatey (Alternativa Automatizada)
 Si tiene instalado el gestor de paquetes Chocolatey en la PowerShell de Windows, puede instalar ambas herramientas ejecutando:
-```
+
 ```bash
 choco install winflexbison mingw -y
 ```
@@ -52,7 +52,7 @@ Siga rigurosamente el orden de los siguientes comandos en su terminal para gener
 
 ### Paso 1: Generar el código fuente de C++ desde Flex
 Este comando compila las expresiones regulares abstractas en un Autómata Finito Determinista (AFD) y exporta el analizador léxico como código nativo de C++.
-```
+
 ```bash
 flex -o lex.yy.cc lexer.l
 ```
