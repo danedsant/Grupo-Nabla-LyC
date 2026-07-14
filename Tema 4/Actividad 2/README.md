@@ -29,16 +29,20 @@ El motor de expresiones regulares evalua los componentes léxicos en el siguient
 
 Al ser un script nativo de Python, no requiere un proceso de instalación complejo. 
 
-1. Extraer el contenido del archivo comprimido en una carpeta local.
+1. Extraer el contenido del archivo comprimido `Lexer.rar` en una carpeta local.
 2. Abrir una terminal (Símbolo del sistema, PowerShell o Bash) en la ruta de la carpeta del proyecto.
 3. Ejecutar el script pasando como argumento el nombre del archivo de prueba que se desea analizar:
 
 ```bash
 # Para ejecutar la prueba exitosa básica:
-python lexer_docker.py Dockerfile_1
+python lexer_docker.py dockerfile_1
 
 # Para ejecutar la prueba con comentarios:
-python lexer_docker.py Dockerfile_2
+python lexer_docker.py dockerfile_2
 
 # Para ejecutar la prueba que detona el error léxico:
-python lexer_docker.py Dockerfile_3
+python lexer_docker.py dockerfile_3
+```
+Alternativamente se puede ejecutar el archivo `ejecutar_lexer.bat` contenido en el archivo comprimido `Lexer.rar`, el cual ejecuta las 3 pruebas consecuentemente.
+> [!NOTE]
+> Se debe pulsar la tecla enter para continuar con las pruebas.
