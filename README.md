@@ -1,8 +1,8 @@
 # Grupo Nabla ~ Calma en la mente, disciplina al frente
 
-### Este repositorio universitario contiene las actividades asignadas al GRUPO NABLA durante el curso del semestre 2026-I en la asignatura: Lenguajes y Compiladores
+#### Este repositorio universitario contiene las actividades asignadas al GRUPO NABLA durante el curso del semestre 2026-I en la asignatura: Lenguajes y Compiladores
 
-## 📝 Temario
+## 📝 Temario de Lenguajes y Compiladores
 
 | TEMA | TOPICO |
 | ------------- | ------------- |
@@ -10,7 +10,7 @@
 | 2 | Los Lenguajes de Programacion  |
 | 3 | Lenguajes y Gramáticas Formales |
 | 4 | Analisis Lexico   |
-| 5 |    |
+| 5 | Analisis Sintactico   |
 
 ## 📜 Integrantes del Grupo Nabla ▽
 
