@@ -35,7 +35,7 @@ def imprimir_arbol(nodo, nivel=0):
     elif isinstance(nodo, Identificador):
         print(f"{indentacion}└─> {nodo}")
 
-# Implementación de un ejemplo de uso del AST
+# Implementación de un ejemplo de uso del AST para una expresión aritmética
 # Simular lo que hace el parser al leer: a + b * c
 
 # Primero se construye el subárbol de la multiplicación
