@@ -39,3 +39,11 @@ El analizador fue puesto a prueba sobre el código fuente de entrada con errores
 
 ```python
 pront x=5; if x>3 prnt(x) else prnt("no")
+```
+
+### 💻 Cómo Ejecutar el Proyecto
+
+**Ejecutar el asistente híbrido autónomo**
+```python
+python unegscript_assistant.py
+```
